@@ -1,0 +1,17 @@
+[project]
+name = "Learning-LangChain"
+description = "Let's learn LangChain"
+version = "0.0.1"
+requires-python = ">=3.10"
+authors = [
+    { name = "restX98" },
+]
+dependencies = [
+    "debugpy==1.8.14",
+]
+
+[tool.coverage.run]
+source = ["core"]
+
+[tool.pylint]
+max-line-length = 180
