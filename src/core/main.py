@@ -8,6 +8,7 @@ from langchain.chat_models import init_chat_model
 import core.commands.translator as translator
 import core.commands.semantic_search as semantic_search
 import core.commands.classification as classification
+import core.commands.extraction as extraction
 
 
 def init_debugger():
@@ -24,6 +25,7 @@ class Models(Enum):
     TRANSLATOR = "translator"
     SEMANTIC_SEARCH = "semantic_search"
     CLASSIFICATION = "classification"
+    EXTRACTION = "extraction"
 
     def __str__(self):
         return self.value
@@ -74,6 +76,9 @@ if __name__ == "__main__":
     elif args.model == Models.CLASSIFICATION:
         print("Running classification")
         classification.run(model)
+    elif args.model == Models.EXTRACTION:
+        print("Running extraction")
+        extraction.run(model)
     else:
         print("Running default model (translator)")
         translator.run(model)
