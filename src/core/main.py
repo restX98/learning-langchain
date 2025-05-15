@@ -6,6 +6,7 @@ from enum import Enum
 from langchain.chat_models import init_chat_model
 
 import core.commands.translator as translator
+import core.commands.semantic_search as semantic_search
 
 
 def init_debugger():
@@ -20,6 +21,7 @@ init_debugger()
 
 class Models(Enum):
     TRANSLATOR = "translator"
+    SEMANTIC_SEARCH = "semantic_search"
     DEFAULT = TRANSLATOR
 
     def __str__(self):
@@ -62,7 +64,12 @@ if __name__ == "__main__":
 
     model = init_chat_model("gpt-4o-mini", model_provider="openai")
 
-    if args.model is Models.TRANSLATOR:
-        translator.run(model=model)
+    if args.model == Models.TRANSLATOR:
+        print("Running translator")
+        translator.run(model)
+    elif args.model == Models.SEMANTIC_SEARCH:
+        print("Running semantic search")
+        semantic_search.run(model)
     else:
-        translator.run(model=model)
+        print("Running default model (translator)")
+        translator.run(model)

@@ -12,6 +12,9 @@ dependencies = [
     "langchain[openai]==0.3.25",
     "langchain-core==0.3.59",
     "langgraph==0.4.3",
+    "langchain-community==0.3.24",
+    "pypdf==5.5.0",
+    "langchain-openai==0.3.16",
 ]
 
 [tool.coverage.run]
