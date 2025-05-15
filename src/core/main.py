@@ -9,6 +9,7 @@ import core.commands.translator as translator
 import core.commands.semantic_search as semantic_search
 import core.commands.classification as classification
 import core.commands.extraction as extraction
+import core.commands.chat_bot as chat_bot
 
 
 def init_debugger():
@@ -26,6 +27,7 @@ class Models(Enum):
     SEMANTIC_SEARCH = "semantic_search"
     CLASSIFICATION = "classification"
     EXTRACTION = "extraction"
+    CHAT_BOT = "chat_bot"
 
     def __str__(self):
         return self.value
@@ -79,6 +81,9 @@ if __name__ == "__main__":
     elif args.model == Models.EXTRACTION:
         print("Running extraction")
         extraction.run(model)
+    elif args.model == Models.CHAT_BOT:
+        print("Running chat bot")
+        chat_bot.run(model)
     else:
         print("Running default model (translator)")
         translator.run(model)
